@@ -6,6 +6,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
         <title> Titan Web Testing </title>
 
         <link rel="stylesheet" href="main.css">
@@ -27,9 +28,27 @@
 
                     // Formatting the JSON Object
                     var jsonObject = new Object();
+                    var jsonArray = new Array();
 
                     jsonObject.requestInfo = new Object();
-                    jsonObject.requestInfo.tesecasestring = testcaseString;
+                    jsonObject.requestInfo.testcaseString = testcaseString;
+
+                    /*
+                    // Creating the JSONArray to save the request information
+                    for (var i = 0; i < paramNameList.length; i++) {
+                        var paramName = paramNameList[i].value;
+                        var paramValue = paramValueList[i].value;
+                        var tempObject = new Object();
+
+                        tempObject.paramName = paramName;
+                        tempObject.paramValue = paramValue;
+                        jsonArray.push(tempObject);
+                    }
+                    jsonObject.requestInfo.paramInformation = jsonArray;
+                    */
+                    var textAreaValue = $("#testingConfig_txArea").val()
+
+                    jsonObject.requestInfo.configValue = textAreaValue;
 
                     $.ajax({
                         url: 'http://127.0.0.1:62590/localTestingNode',
@@ -41,7 +60,6 @@
                         contentType: "application/json",
 
                         success: function (data) {
-                            alert(data['result']);
                             var resultText = data['result'];
                             $('#testingReport_txArea').val(resultText);
                         }, error: function (xhr, textStatus, errorThrown) {
@@ -49,7 +67,37 @@
                         }
                     });
                 });
+
+                // Adding a parameter
+                $('#addParam').click(function () {
+                    var paramElement = $("<div>").append("<span>");
+                    var paramNameInput = $('<input>');
+                    paramNameInput.attr({
+                        "type": "text",
+                        "class": "paramName"
+                    });
+                    var paramValueInput = $('<input>');
+                    paramValueInput.attr({
+                        "type": "text",
+                        "class": "paramValue"
+                    });
+                    var paramDelButton = $('<input>');
+                    paramDelButton.attr({
+                        "type": "button",
+                        "value": "Delete",
+                        "class": "deleteParamFormat"
+                    });
+                    paramElement.append(paramNameInput).append(paramValueInput).append(paramDelButton);
+                    var paramListRoot = $('#paramElement');
+                    paramListRoot.append(paramElement);
+                });
             });
+
+            // Deleting the saved parameter list
+            $(document).on("click", '.deleteParamFormat', function () {
+                $(this).parent().remove();
+            });
+
         </script>
     </head>
 
@@ -69,12 +117,118 @@
                                 </select>
                             </span>
                             <span>
+                                 <input type="Button" value="Adding parameter" id="addParam"/>
+                            </span>
+                            <span>
                                  <input type="Button" value="Testing Start" id="StartTestcase"/>
                             </span>
                         </div>
-                        <div>
-                            <span> URL  : <input type="text" name="parameter"></span> <br>
-                            <span> Type : <input type="text" name="parameter"></span> <br>
+                        <div id="configTextArea">
+                            <textarea id="testingConfig_txArea" rows="20" cols="87" style="resize:none; color: #eaeaea; background-color: #354134; border: 0px;">
+[LOGGING]
+FileMask 			:= LOG_ALL | DEBUG | ERROR | USER | WARNING | TESTCASE | STATISTICS
+ConsoleMask 		:= DEBUG | TESTCASE | PORTEVENT | ERROR | STATISTICS | MATCHING | VERDICTOP_SETVERDICT
+SourceInfoFormat 	:= Single
+LogFile 			:= "../log /OneM2MTesterLog-%n.log"
+#LogSourceInfo 		:= Stack
+
+
+[TESTPORT_PARAMETERS]
+system.HTTP_client_port.VERIFYCERTIFICATE		:= "no"
+system.HTTP_server_port.use_notification_ASPs	:= "no"
+system.*.http_debugging							:= "yes"
+
+[MAIN_CONTROLLER]
+KillTimer	:= 1
+TCPPort		:= 9639
+
+[MODULE_PARAMETERS]
+/*Kind reminder: please configure following settings step by step~*/
+
+//================================================Step-1: IUT configuration=======================================
+/*System under test (SUT) configuration
+ * @PX_SUT_ADDRESS: SUT access addres in format IP:port
+ * @PX_CSE_NAME: CSEBase name of CSE in SUT
+ * @PX_URI_CSE: CSE access URI
+ * @PX_CSE_ID: CSE-ID
+ */
+OneM2M_Pixits.PX_SUT_ADDRESS 			:= "203.253.128.151:7579";// "192.168.0.17:7579";
+OneM2M_Pixits.PX_CSE_NAME				:= "/mobius-yt";//"/mobius-yt";//
+OneM2M_Pixits.PX_URI_CSE 				:= "";
+OneM2M_Pixits.PX_CSE_ID					:= "";
+/* SP-relative + structured e,g, OM2M
+ * OneM2M_Pixits.PX_SUT_ADDRESS 			:="192.168.0.17:8080";
+ * OneM2M_Pixits.PX_CSE_ID					:= "~/in-cse";
+ * OneM2M_Pixits.PX_URI_CSE 				:= "~/in-cse";
+ * OneM2M_Pixits.PX_CSE_NAME				:="in-name";
+ * OneM2M_Pixits.PX_ADDRESSING_FORMAT		:= e_spRelative;
+ * OneM2M_Pixits.PX_UNSTRUCTURED			:= false;
+*/
+
+/* CSE-relative + structured e,g, Mobius-yt
+ * OneM2M_Pixits.PX_SUT_ADDRESS 			:="192.168.0.17:7579";
+ * OneM2M_Pixits.PX_CSE_ID					:= "";
+ * OneM2M_Pixits.PX_URI_CSE 				:= "";
+ * OneM2M_Pixits.PX_CSE_NAME				:="/mobius-yt";
+ * OneM2M_Pixits.PX_ADDRESSING_FORMAT		:= e_cseRelative;
+ * OneM2M_Pixits.PX_UNSTRUCTURED			:= false;
+*/
+//================================================Step-2: Resource Addressing Format configuration================
+/*Supported resource addressing format configuration
+ * @PX_UNSTRUCTURED: set to true to indicate the resource unstructured addressing format; false for structured one
+ * @PX_ADDRESSING_FORMAT: supported address format either e_spRelative, e_cseRelative, or e_cseRelative
+ * @PX_FROM_IS_AE_ID: set true to indicate the PX From (originator) parameter uses field value of AE-ID;
+ * otherwise set to false
+ */
+/*
+ * Sp-relative structured resource format i.e./~/CSE-id/cse-name/resourceid e.g. "/~/in-cse/in-name/Cadmin-ae"
+ * Sp-relative unstructured resource fomrat i.e. /~/CSE-id/resourceid e.g. "/~/in-cse/Cadmin-ae"
+ */
+
+OneM2M_Pixits.PX_UNSTRUCTURED			:= false;
+OneM2M_Pixits.PX_ADDRESSING_FORMAT		:= e_cseRelative;
+OneM2M_Pixits.PX_FROM_IS_AE_ID			:= true;
+
+//================================================Step-3: Protocol configuration=================================
+/*Serialization and Protocol binding specification
+ * @PX_SERIALIZATION supports value of "xml", "json", "XML", or "JSON"
+ * @PX_PROTOCOL_BINDING now only supports "HTTP"
+ */
+OneM2M_Pixits.PX_SERIALIZATION 			:= "JSON"; //{XML JSON json xml}
+OneM2M_Pixits.PX_PROTOCOL_BINDING 		:= "HTTP";
+
+//================================================Step-4: Parameters and Preference configuration=================
+/*Parameters required for setting the AE registration
+ * @PX_AE_ID_STEM: AE-ID-Stem parameter which is used for AE registration
+ * @PX_APP_ID: Application-ID which is required for AE registration
+ * @PX_RESOURCES_TO_BE_DELETED: resource-ids for AE and ACP that are created during test;
+ * @PX_RESOURCE_TO_BE_DELETED: AE resource-id (AE-ID)
+ * Note that these two parameters(PX_RESOURCE_TO_BE_DELETED and PX_RESOURCES_TO_BE_DELETED ) are designed for debug
+ * and only used in testcase "TC_DELETE_RESOURCES" and "PX_RESOURCE_TO_BE_DELETED"
+ * It is up to user to decide whether to use those two unofficial testcases!
+ * @PX_SUPER_USER: so called super user in oneM2M CSE implementations and this parameter is designed for set originator for creation of
+ * AccessControlPolicy resource; user can set this parameter to the super user value if any
+ * @PX_ACOR: AccessControlOriginators in the AccessControlRule attribute; assign a list of accessControlOriginators that are permitted
+ * to access to your CSE and resources stored in your CSE
+ * @PX_RUN_POSTAMBLE: set to true to indicate the test system will automatically delete resources created as precondition progress
+ */
+OneM2M_Pixits.PX_AE_ID_STEM 				:= "Cadmin-ae";
+OneM2M_Pixits.PX_APP_ID 					:= "myAppId";
+
+/*To be removed later cause PX_DELETE_CREATED_RESOURCES and PX_RESOURCES_TO_BE_DELETED is only used for pre-testing testcase of ATS*/
+OneM2M_Pixits.PX_RESOURCES_TO_BE_DELETED 	:= {"Cadmin-ae"};//{"Cadmin-ae", "admin-acp", "Cadmin-ae2"};
+OneM2M_Pixits.PX_RESOURCE_TO_BE_DELETED 	:= "Cadmin-ae";
+
+OneM2M_Pixits.PX_SUPER_USER					:= "admin:admin";//"Cadmin-ae";
+OneM2M_Pixits.PX_ACOR	 					:= {"admin:admin", "origin:origin", "Cadmin-ae"};//{"admin:admin", "origin:origin", "*"}
+
+/*Flag to indicate users preference for delete or remain all resources that are created during pre-condition step*/
+OneM2M_Pixits.PX_RUN_POSTAMBLE 				:= true;
+
+OneM2M_Pixits.LABELS 								:= {"VALUE_1"};
+OneM2M_Pixits.PX_TESTER_ADDRESS						:= "192.168.125.152:44674";
+
+                            </textarea>
                         </div>
                     </div>
 

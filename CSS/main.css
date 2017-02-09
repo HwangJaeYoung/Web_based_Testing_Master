@@ -98,10 +98,26 @@ nav ul a {
     width: 400px;
 }
 
+#configTextArea {
+    position: absolute;
+    top: 60px; /* Set this to the height of the header */
+    left: 5px;
+    height: 600px;
+    width: 300px;
+}
+
+#headerList{
+    position: absolute;
+    top: 250px; /* Set this to the height of the header */
+    left: 30px;
+    height: 600px;
+    width: 400px;
+}
+
 #testingReport {
     position: absolute;
     top: 120px; /* Set this to the height of the header */
-    left: 476px;
+    left: 600px;
     height: 600px;
     width: 400px;
 }

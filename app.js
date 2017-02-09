@@ -14,38 +14,43 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static('Javascript'));
 app.use(express.static('CSS'));
+app.use(express.static('Bootstrap'));
 
 // Connecting the oneM2M Web Tester page.
-app.post('/localTestingNode', function (request, response2) {
+app.post('/localTestingNode', function (request, mainResponse) {
 
     var resultObj = request.body;
     var requestInfoObject = resultObj['requestInfo'];
-    var resourceName = requestInfoObject['tesecasestring'];
+    var testcaseName = requestInfoObject['testcaseString'];
 
-    console.log(resourceName);
+    var text = requestInfoObject['configValue'];
+    console.log(text);
 
     requestToServer({
-        url :'http://192.168.81.133:62590/TesterNode',
+        url :'http://192.168.140.128:62590/TesterNode',
         method : 'POST',
         json: true,
         body: {
-            "TestCase" : resourceName
+            "TestcaseName" : testcaseName,
+            "TestcaseParameter" : text
         }},function(error, response ,body) {
         console.log("Entering the original server");
 
         var jsonObject  = new Object( );
         jsonObject.result = response.body;
+        console.log(response.body);
+
         if(error) {
-            response2.status(200).send(jsonObject);
+            mainResponse.status(200).send(jsonObject);
         } else {
-            response2.status(200).send(jsonObject);
+            mainResponse.status(200).send(jsonObject);
         }
     });
 });
 
 // Connecting the oneM2M Web Tester page.
 app.get('/TitanWebTesting', function (request, response) {
-    fs.readFile('TitanTestingView.ejs', 'utf-8', function (error, data) {
+    fs.readFile('TitanWebTestingMain.ejs', 'utf-8', function (error, data) {
         response.status(200).end(ejs.render(data));
     });
 });
