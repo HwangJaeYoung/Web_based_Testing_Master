@@ -5,11 +5,10 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
         <meta name="description" content="">
         <meta name="author" content="">
-
-        <!-- /.container -->
 
         <!-- Javascript Library -->
         <script src="jquery-3.0.0.min.js"></script>
@@ -50,23 +49,8 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#"> oneM2M Web Testing </a>
+                    <a class="navbar-brand" href="#">oneM2M Web Testing</a>
                 </div>
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li>
-                            <a href="#">About</a>
-                        </li>
-                        <li>
-                            <a href="#">Services</a>
-                        </li>
-                        <li>
-                            <a href="#">Contact</a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- /.navbar-collapse -->
             </div>
             <!-- /.container -->
         </nav>
@@ -75,23 +59,38 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 text-center">
-                    <div>
-                        <span class="label label-success">Success</span>
 
-                        <span>
-                            <select class="form-control">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
-                        </span>
-                    </div>
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-lg-4 control-label">Select Profile</label>
+                            <div class="col-lg-8">
+                                <select class="form-control">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-lg-4 control-label">Select Testcase</label>
+                            <div class="col-lg-8">
+                                <select class="form-control">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
 
                     <div class="form-group">
                         <label for="exampleTextarea"> Configuration Editor </label>
-                        <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+                        <textarea class="form-control" id="exampleTextarea" rows="11"></textarea>
                     </div>
                 </div>
 
