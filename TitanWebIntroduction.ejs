@@ -27,30 +27,6 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
-
-        <script type="text/javascript">
-            $(function () {
-
-                // Request to specific server
-                $('#go_testing_page').click(function() {
-                    $.ajax({
-                        url: "http://127.0.0.1:62590/requestManage",
-                        type: "get",
-                        dataType: "json",
-                        cache: false,
-                        timeout: 30000,
-                        contentType: "application/json",
-                        success: function (responseData) {
-                            var headerInfo = requestResultFunction(responseData);
-                            $('#statusResult').css("color", "#eaeaea").html("Status : " + responseData['status']);
-                            $('#headerTextResult').val(headerInfo);
-                        }, error: function (xhr, textStatus, errorThrown) {
-
-                        }
-                    });
-                });
-            });
-        </script>
     </head>
 
     <body>
@@ -58,13 +34,7 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">oneM2M Web Testing</a>
+                <a class="navbar-brand" href="http://127.0.0.1:62590/TitanWebIntroduction">oneM2M Web Testing</a>
             </div>
         </div>
     </nav>
@@ -73,8 +43,8 @@
     <div class="jumbotron">
         <div class="container">
             <h1>Hello, oneM2M!</h1>
-            <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-            <p><a id="go_testing_page" class="btn btn-primary btn-lg" href="http://127.0.0.1:62590/TitanWebTesting" role="button">Learn more &raquo;</a></p>
+            <p>oneM2MTester project is a oneM2M conformance testing project which was initialized by Korea Electronics Technology Institute (KETI) in January 2016.</p>
+            <p><a id="go_testing_page" class="btn btn-danger btn-lg" href="http://127.0.0.1:62590/TitanWebTesting" role="button">Learn more &raquo;</a></p>
         </div>
     </div>
 
@@ -83,25 +53,25 @@
         <div class="row">
             <div class="col-md-4">
                 <h2>Sejong University</h2>
-                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-            </div>
-            <div class="col-md-4">
-                <h2>oneM2M</h2>
-                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                <p>Sejong University (세종대학교, 世宗大學校) is a private university located in Seoul, South Korea. The history of Sejong University dates to 1940 when a trust established the Kyung Sung Humanities Institute. In 1978, the academy was named Sejong University in honor of Sejong the Great, the fourth king of the Chosun Dynasty and overseer of the Korean alphabet Hangeul.</p>
+                <p><a class="btn btn-default" href="http://eng.sejong.ac.kr/index.do" role="button">View details &raquo;</a></p>
             </div>
             <div class="col-md-4">
                 <h2>KETI</h2>
-                <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-                <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                <p>KETI is a R&D institution specialized in the electronics & IT areas under the Ministry of Trade, Industry & Energy. Since its establishment in 1991, we have given our best efforts toward the competitiveness of small and mid-sized enterprises in Korea's flagship industries and new industries.</p>
+                <p><a class="btn btn-default" href="http://www.keti.re.kr/eng/main/main.php" role="button">View details &raquo;</a></p>
+            </div>
+            <div class="col-md-4">
+                <h2>oneM2M</h2>
+                <p>oneM2M is a global organization that creates requirements, architecture, API specifications, security solutions and interoperability for Machine-to-Machine and IoT technologies.</p>
+                <p><a class="btn btn-default" href="http://www.onem2m.org/" role="button">View details &raquo;</a></p>
             </div>
         </div>
 
         <hr>
 
         <footer>
-            <p>&copy; Company 2014</p>
+            <p>&copy; Sejong Univ. 2017</p>
         </footer>
     </div> <!-- /container -->
 

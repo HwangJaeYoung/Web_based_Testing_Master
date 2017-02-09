@@ -35,6 +35,27 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
+
+        <script type="text/javascript">
+            $(function () {
+                // Request to specific server
+                $('#start_testing').click(function() {
+                    $.ajax({
+                        url: "http://127.0.0.1:62590/requestManage",
+                        type: "get",
+                        dataType: "json",
+                        cache: false,
+                        timeout: 30000,
+                        contentType: "application/json",
+                        success: function (responseData) {
+
+                        }, error: function (xhr, textStatus, errorThrown) {
+
+                        }
+                    });
+                });
+            });
+        </script>
     </head>
 
     <body>
@@ -43,13 +64,7 @@
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">oneM2M Web Testing</a>
+                    <a class="navbar-brand" href="http://127.0.0.1:62590/TitanWebTesting">oneM2M Web Testing</a>
                 </div>
             </div>
             <!-- /.container -->
@@ -86,11 +101,20 @@
                                 </select>
                             </div>
                         </div>
+
+                        <div class="form-group"> </div>
+                        <div class="form-group"> </div>
+                        <div class="form-group"> </div>
                     </form>
 
                     <div class="form-group">
                         <label for="exampleTextarea"> Configuration Editor </label>
                         <textarea class="form-control" id="exampleTextarea" rows="11"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-lg-9"></div>
+                        <button type="submit" class="btn btn-primary col-lg-3 text-right"> Start Testing </button>
                     </div>
                 </div>
 
@@ -99,9 +123,9 @@
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Username</th>
+                            <th>Test Profile</th>
+                            <th>Testcase</th>
+                            <th>Test Result</th>
                         </tr>
                         </thead>
                         <tbody>
