@@ -12,9 +12,10 @@ var requestToServer = require('request');
 var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
-app.use(express.static('Javascript'));
 app.use(express.static('CSS'));
+app.use(express.static('Ajax'));
 app.use(express.static('Bootstrap'));
+app.use(express.static('Javascript'));
 
 // Connecting the oneM2M Web Tester page.
 app.post('/localTestingNode', function (request, mainResponse) {

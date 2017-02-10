@@ -58,6 +58,32 @@
                         }
                     });
                 });
+
+                // 기본적으로 1depth의 드롭다운을 로드함
+                $("#testprofile").load("TestcaseList.html #testprofile1-1", function() {
+                    // 로딩이 완료되면 드롭다운을 감싸는 태그 요소를 화면에 표시함
+                    $(this).show();
+                });
+
+                // 기본적으로 1depth의 드롭다운을 로드함
+                $("#testcaselist").load("TestcaseList.html #testcaselist1-1", function() {
+                    // 로딩이 완료되면 드롭다운을 감싸는 태그 요소를 화면에 표시함
+                    $(this).show();
+                });
+
+                $(document).on("change", "#testprofile > select", function() {
+                    // 1dpeth가 변경되므로 2,3depth는 초기화.
+                    // $("#testcaselist").empty().hide();
+
+                    // 선택된 항목이 지시하는 하위 카테고리 페이지의 URL얻기
+                    var target = $(this).find("option:selected").attr("data-target");
+                    var selector = "TestcaseList.html " + target;
+                    console.log(selector)
+                    // 다음 항목 로드
+                    $("#testcaselist").load(selector, function() {
+                        $(this).show();
+                    });
+                });
             });
         </script>
     </head>
@@ -80,29 +106,13 @@
                 <div class="col-lg-6 text-center">
                     <form class="form-horizontal">
                         <div class="form-group">
-                            <label for="inputEmail3" class="col-lg-4 control-label">Select Profile</label>
-                            <div class="col-lg-8">
-                                <select class="form-control">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </select>
-                            </div>
+                            <label class="col-lg-4 control-label">Select Profile</label>
+                            <div class="col-lg-8" id="testprofile"></div>
                         </div>
 
                         <div class="form-group">
-                            <label for="inputPassword3" class="col-lg-4 control-label">Select Testcase</label>
-                            <div class="col-lg-8">
-                                <select class="form-control">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </select>
-                            </div>
+                            <label class="col-lg-4 control-label">Select Testcase</label>
+                            <div class="col-lg-8" id="testcaselist"></div>
                         </div>
 
                         <table class="table table-striped">
