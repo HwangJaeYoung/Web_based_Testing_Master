@@ -1,0 +1,42 @@
+body {
+    padding-top: 70px;
+    /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+
+.starting_button_margin_right{
+    margin-right: 15px;
+}
+
+/* Parameter Table CSS */
+.parameter-table-fixed thead {
+    width: 97%;
+}
+.parameter-table-fixed tbody {
+    height: 170px;
+    overflow-y: auto;
+    width: 100%;
+}
+.parameter-table-fixed thead, .parameter-table-fixed tbody, .parameter-table-fixed tr, .parameter-table-fixed td, .parameter-table-fixed th {
+    display: block;
+}
+.parameter-table-fixed tbody td, .parameter-table-fixed thead > tr> th {
+    float: left;
+    border-bottom-width: 1px;
+}
+
+/* Result Table CSS */
+.result-table-fixed thead {
+    width: 97%;
+}
+.result-table-fixed tbody {
+    height: 270px;
+    overflow-y: auto;
+    width: 100%;
+}
+.result-table-fixed thead, .result-table-fixed tbody, .result-table-fixed tr, .result-table-fixed td, .result-table-fixed th {
+    display: block;
+}
+.result-table-fixed tbody td, .result-table-fixed thead > tr> th {
+    float: left;
+    border-bottom-width: 1px;
+}

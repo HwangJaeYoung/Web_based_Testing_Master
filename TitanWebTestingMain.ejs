@@ -1,221 +1,214 @@
 <!DOCTYPE html>
 
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-        <meta name="description" content="">
-        <meta name="author" content="">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-        <!-- Javascript Library -->
-        <script src="jquery-3.0.0.min.js"></script>
+    <!-- Javascript Library -->
+    <script src="jquery-3.0.0.min.js"></script>
 
-        <!-- Bootstrap Core JavaScript -->
-        <script src="js/bootstrap.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
 
-        <title> oneM2M Web Testing </title>
+    <title> oneM2M Web Testing </title>
 
-        <!-- Bootstrap Core CSS -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
-        <!-- Custom styles for this template -->
-        <style>
-            body {
-                padding-top: 70px;
-                /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
-            }
+    <!-- Custom styles for this template -->
+    <style>
+        body {
+            padding-top: 70px;
+            /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+        }
+        .starting_button_margin_right{
+            margin-right: 15px;
+        }
+    </style>
 
-            .starting_button_margin_right{
-                margin-right: 15px;
-            }
-        </style>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
-
-        <script type="text/javascript">
-            $(function () {
-                // Request to specific server
-                $('#start_testing').click(function() {
-                    $.ajax({
-                        url: "http://127.0.0.1:62590/requestManage",
-                        type: "get",
-                        dataType: "json",
-                        cache: false,
-                        timeout: 30000,
-                        contentType: "application/json",
-                        success: function (responseData) {
-
-                        }, error: function (xhr, textStatus, errorThrown) {
-
-                        }
-                    });
-                });
-
-                // 기본적으로 1depth의 드롭다운을 로드함
-                $("#testprofile").load("TestcaseList.html #testprofile1-1", function() {
-                    // 로딩이 완료되면 드롭다운을 감싸는 태그 요소를 화면에 표시함
-                    $(this).show();
-                });
-
-                // 기본적으로 1depth의 드롭다운을 로드함
-                $("#testcaselist").load("TestcaseList.html #testcaselist1-1", function() {
-                    // 로딩이 완료되면 드롭다운을 감싸는 태그 요소를 화면에 표시함
-                    $(this).show();
-                });
-
-                $(document).on("change", "#testprofile > select", function() {
-                    // 1dpeth가 변경되므로 2,3depth는 초기화.
-                    // $("#testcaselist").empty().hide();
-
-                    // 선택된 항목이 지시하는 하위 카테고리 페이지의 URL얻기
-                    var target = $(this).find("option:selected").attr("data-target");
-                    var selector = "TestcaseList.html " + target;
-                    console.log(selector)
-                    // 다음 항목 로드
-                    $("#testcaselist").load(selector, function() {
-                        $(this).show();
-                    });
+    <script type="text/javascript">
+        $(function () {
+            // Request to specific server
+            $('#start_testing').click(function() {
+                $.ajax({
+                    url: "http://127.0.0.1:62590/requestManage",
+                    type: "get",
+                    dataType: "json",
+                    cache: false,
+                    timeout: 30000,
+                    contentType: "application/json",
+                    success: function (responseData) {
+                    }, error: function (xhr, textStatus, errorThrown) {
+                    }
                 });
             });
-        </script>
-    </head>
+            // 기본적으로 1depth의 드롭다운을 로드함
+            $("#testprofile").load("TestcaseList.html #testprofile1-1", function() {
+                // 로딩이 완료되면 드롭다운을 감싸는 태그 요소를 화면에 표시함
+                $(this).show();
+            });
+            // 기본적으로 1depth의 드롭다운을 로드함
+            $("#testcaselist").load("TestcaseList.html #testcaselist1-1", function() {
+                // 로딩이 완료되면 드롭다운을 감싸는 태그 요소를 화면에 표시함
+                $(this).show();
+            });
+            $(document).on("change", "#testprofile > select", function() {
+                // 1dpeth가 변경되므로 2,3depth는 초기화.
+                // $("#testcaselist").empty().hide();
+                // 선택된 항목이 지시하는 하위 카테고리 페이지의 URL얻기
+                var target = $(this).find("option:selected").attr("data-target");
+                var selector = "TestcaseList.html " + target;
+                console.log(selector)
+                // 다음 항목 로드
+                $("#testcaselist").load(selector, function() {
+                    $(this).show();
+                });
+            });
+        });
+    </script>
+</head>
 
-    <body>
-        <!-- Navigation -->
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <div class="container">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="http://127.0.0.1:62590/TitanWebTesting">oneM2M Web Testing</a>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="http://127.0.0.1:62590/TitanWebTesting">oneM2M Web Testing</a>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+
+<!-- Page Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 text-center">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-lg-4 control-label">Select Profile</label>
+                    <div class="col-lg-8" id="testprofile"></div>
                 </div>
+
+                <div class="form-group">
+                    <label class="col-lg-4 control-label">Select Testcase</label>
+                    <div class="col-lg-8" id="testcaselist"></div>
+                </div>
+
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Test Profile</th>
+                        <th>Testcase</th>
+                        <th>Test Result</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="default">
+                        <td>1</td>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr class="default">
+                        <td>2</td>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                    </tr>
+                    <tr class="default">
+                        <td>3</td>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                        <td>@twitter</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary col-lg-3 pull-right starting_button_margin_right">Start Testing</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-lg-6 text-center">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Test Profile</th>
+                    <th>Testcase</th>
+                    <th>Test Result</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="success">
+                    <td>1</td>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                </tr>
+                <tr class="success">
+                    <td>2</td>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                </tr>
+                <tr class="danger">
+                    <td>3</td>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                </tr>
+                <tr class="default">
+                    <td>4</td>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                </tr>
+                <tr class="default">
+                    <td>5</td>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                </tr>
+                <tr class="default">
+                    <td>6</td>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary col-lg-3 pull-right">Detail Information</button>
             </div>
-            <!-- /.container -->
-        </nav>
+        </div>
+    </div>
 
-        <!-- Page Content -->
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 text-center">
-                    <form class="form-horizontal">
-                        <div class="form-group">
-                            <label class="col-lg-4 control-label">Select Profile</label>
-                            <div class="col-lg-8" id="testprofile"></div>
-                        </div>
+    <div class="form-group"> </div>
+    <div class="form-group"> </div>
 
-                        <div class="form-group">
-                            <label class="col-lg-4 control-label">Select Testcase</label>
-                            <div class="col-lg-8" id="testcaselist"></div>
-                        </div>
-
-                        <table class="table table-striped">
-                            <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Test Profile</th>
-                                <th>Testcase</th>
-                                <th>Test Result</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr class="default">
-                                <td>1</td>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                            </tr>
-                            <tr class="default">
-                                <td>2</td>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                            </tr>
-                            <tr class="default">
-                                <td>3</td>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td>@twitter</td>
-                            </tr>
-                            </tbody>
-                        </table>
-
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary col-lg-3 pull-right starting_button_margin_right">Start Testing</button>
-                        </div>
-                    </form>
-                </div>
-
-                <div class="col-lg-6 text-center">
-                    <table class="table table-striped">
-                        <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Test Profile</th>
-                            <th>Testcase</th>
-                            <th>Test Result</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr class="success">
-                            <td>1</td>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr class="success">
-                            <td>2</td>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr class="danger">
-                            <td>3</td>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
-                        <tr class="default">
-                            <td>4</td>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
-                        <tr class="default">
-                            <td>5</td>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
-                        <tr class="default">
-                            <td>6</td>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
-                        </tbody>
-                    </table>
-
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary col-lg-3 pull-right">Detail Information</button>
-                    </div>
-                </div>
-           </div>
-
-            <div class="form-group"> </div>
-            <div class="form-group"> </div>
-
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="form-group">
-                        <label for="exampleTextarea"> Configuration Editor </label>
-                        <textarea class="form-control" id="exampleTextarea" rows="11">[LOGGING]
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <div class="form-group">
+                <label for="exampleTextarea"> Configuration Editor </label>
+                <textarea class="form-control" id="exampleTextarea" rows="11">[LOGGING]
 FileMask 			:= LOG_ALL | DEBUG | ERROR | USER | WARNING | TESTCASE | STATISTICS
 ConsoleMask 		:= DEBUG| TESTCASE | PORTEVENT | ERROR | STATISTICS | MATCHING | VERDICTOP_SETVERDICT
 SourceInfoFormat 	:= Single
@@ -345,9 +338,9 @@ OneM2M_Pixits.PX_IS_LOC_CONTAINER					:= false;//default //set it to true when t
 
 /*All configuration are done~Now start*/
 </textarea>
-                    </div>
-                </div>
             </div>
         </div>
-    </body>
+    </div>
+</div>
+</body>
 </html>
