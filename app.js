@@ -58,7 +58,7 @@ app.get('/TitanWebIntroduction', function (request, response) {
 
 // Connecting the oneM2M Web Tester page.
 app.get('/TitanWebTesting', function (request, response) {
-    fs.readFile('TitanWebTestingMain2.ejs', 'utf-8', function (error, data) {
+    fs.readFile('TitanWebTestingMain.ejs', 'utf-8', function (error, data) {
         response.status(200).end(ejs.render(data));
     });
 });
