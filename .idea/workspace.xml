@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4ba86143-9457-4d8b-ac3c-92bf3fb9cbcc" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CSS/MainTemplate.css" afterPath="$PROJECT_DIR$/CSS/MainTemplate.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TitanWebTestingMain.ejs" afterPath="$PROJECT_DIR$/TitanWebTestingMain.ejs" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -45,8 +43,8 @@
       <file leaf-file-name="TitanWebTestingMain.ejs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TitanWebTestingMain.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="204" column="79" lean-forward="true" selection-start-line="204" selection-start-column="79" selection-end-line="204" selection-end-column="79" />
+            <state relative-caret-position="291">
+              <caret line="154" column="57" lean-forward="true" selection-start-line="154" selection-start-column="57" selection-end-line="154" selection-end-column="57" />
               <folding />
             </state>
           </provider>
@@ -410,12 +408,12 @@
       <workItem from="1486854262542" duration="7056000" />
       <workItem from="1486889452377" duration="731000" />
       <workItem from="1486890928735" duration="3916000" />
-      <workItem from="1486895406535" duration="3361000" />
+      <workItem from="1486895406535" duration="4123000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88781000" />
+    <option name="totallyTimeSpent" value="89543000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
@@ -636,8 +634,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TitanWebTestingMain.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="204" column="79" lean-forward="true" selection-start-line="204" selection-start-column="79" selection-end-line="204" selection-end-column="79" />
+        <state relative-caret-position="291">
+          <caret line="154" column="57" lean-forward="true" selection-start-line="154" selection-start-column="57" selection-end-line="154" selection-end-column="57" />
           <folding />
         </state>
       </provider>

@@ -147,13 +147,11 @@
                 $(document).on("click", '.deleteTestcase', function () {
                     var selectedTestcaseNumber = $(this).closest('tr').find('.testcaseOrder').text();
                     testcaseList.remove(testcaseList[selectedTestcaseNumber - 1]);
-                    alert(selectedTestcaseNumber);
 
                     $('#testcaseListTbody').children().remove();
 
-                    var testcaseElement = $("<tr>")
-
                     for(var i = 0; i < testcaseList.length; i++) {
+                        var testcaseElement = $("<tr>")
                         var testcaseNumberTD = $('<td>');
                         testcaseNumberTD.attr({
                             "class": "col-xs-1 testcaseOrder"
