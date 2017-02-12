@@ -1,3 +1,5 @@
+/* Custom styles for this template */
+
 body {
     padding-top: 70px;
     /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
@@ -5,6 +7,23 @@ body {
 
 .starting_button_margin_right{
     margin-right: 15px;
+}
+
+/* Testcase List Table CSS */
+.testcase-table-fixed thead {
+    width: 97%;
+}
+.testcase-table-fixed tbody {
+    height: 170px;
+    overflow-y: auto;
+    width: 100%;
+}
+.testcase-table-fixed thead, .testcase-table-fixed tbody, .testcase-table-fixed tr, .testcase-table-fixed td, .testcase-table-fixed th {
+    display: block;
+}
+.testcase-table-fixed tbody td, .testcase-table-fixed thead > tr> th {
+    float: left;
+    border-bottom-width: 1px;
 }
 
 /* Parameter Table CSS */
