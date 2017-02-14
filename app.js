@@ -25,8 +25,8 @@ app.post('/localTestingNode', function (request, mainResponse) {
     var testcaseName = requestInfoObject['testcaseString'];
 
     var text = requestInfoObject['configValue'];
-    console.log(text);
 
+    /*
     requestToServer({
         url :'http://192.168.140.128:62590/TesterNode',
         method : 'POST',
@@ -46,7 +46,7 @@ app.post('/localTestingNode', function (request, mainResponse) {
         } else {
             mainResponse.status(200).send(jsonObject);
         }
-    });
+    }); */
 });
 
 // Connecting the oneM2M Web Tester page.
