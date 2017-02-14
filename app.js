@@ -21,11 +21,12 @@ app.use(express.static('Javascript'));
 app.post('/localTestingNode', function (request, mainResponse) {
 
     var resultObj = request.body;
-    var requestInfoObject = resultObj['requestInfo'];
-    var testcaseName = requestInfoObject['testcaseString'];
+    var configObject = resultObj['testConfig'];
+    var testcaseNameArray = configObject['testcaseName'];
+    var testcaseParamArray = configObject['testcaseParam'];
 
-    var text = requestInfoObject['configValue'];
-
+    for(var i = 0; i < testcaseNameArray.length; i++)
+        console.log(testcaseParamArray[i]);
     /*
     requestToServer({
         url :'http://192.168.140.128:62590/TesterNode',

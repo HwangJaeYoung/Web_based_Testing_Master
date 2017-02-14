@@ -50,7 +50,7 @@
                 $('#start_testing').click(function() {
 
                     var testcaseName = []
-                    var paratmerName = [], parameterValue = [];
+                    var parameterName = [], parameterValue = [], concatenatedParameter = [];
 
                     /* // Getting testcase list
                     $("#testcaseListTable tbody tr").each(function() {
@@ -63,7 +63,7 @@
 
                     // Getting parameter name
                     $(".parameterName").each(function() {
-                        paratmerName.push($(this).attr('id'));
+                        parameterName.push($(this).attr('id'));
                     });
 
                     // Getting parameter value
@@ -71,26 +71,32 @@
                         parameterValue.push($(this).val());
                     });
 
+                    // Concatenating testcase parameters
+                    for(var i = 0; i < parameterName.length; i++) {
+                        concatenatedParameter[i] = parameterName[i] + " := " + parameterValue[i];
+                    }
+
                     var testcaseConfigObject = new Object();
                     testcaseConfigObject.testConfig = new Object();
                     testcaseConfigObject.testConfig.testcaseName = testcaseName;
+                    testcaseConfigObject.testConfig.testcaseParam = concatenatedParameter;
 
+                    /*
                     $.ajax({
                         url: 'http://127.0.0.1:62590/localTestingNode',
                         type: "post",
                         dataType: "json",
                         cache: false,
                         timeout: 30000,
-                        data: JSON.stringify(jsonObject),
+                        data: JSON.stringify(testcaseConfigObject),
                         contentType: "application/json",
 
                         success: function (data) {
-                            var resultText = data['result'];
-                            $('#testingReport_txArea').val(resultText);
+
                         }, error: function (xhr, textStatus, errorThrown) {
-                            alert(textStatus + ' : ' + errorThrown);
+
                         }
-                    });
+                    }); */
                 });
 
                 // 기본적으로 1depth의 드롭다운을 로드함
@@ -414,7 +420,7 @@
                 <div class="col-lg-6">
                     <div class="row">
                         <div class="col-lg-12" align="center">
-                            <img src="sejong.jpg" class="img-fluid" align="center" alt="Responsive image">
+                            <img src="oneM2MTester.png" class="img-fluid" align="center" alt="Responsive image">
                         </div>
                     </div>
                     <div class="row">
