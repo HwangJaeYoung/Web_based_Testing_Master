@@ -27,14 +27,14 @@ app.post('/localTestingNode', function (request, mainResponse) {
 
     for(var i = 0; i < testcaseNameArray.length; i++)
         console.log(testcaseParamArray[i]);
-    /*
+
     requestToServer({
         url :'http://192.168.140.128:62590/TesterNode',
         method : 'POST',
         json: true,
         body: {
-            "TestcaseName" : testcaseName,
-            "TestcaseParameter" : text
+            "TestcaseName" : testcaseNameArray,
+            "TestcaseParameter" : testcaseParamArray
         }},function(error, response ,body) {
         console.log("Entering the original server");
 
@@ -47,7 +47,7 @@ app.post('/localTestingNode', function (request, mainResponse) {
         } else {
             mainResponse.status(200).send(jsonObject);
         }
-    }); */
+    });
 });
 
 // Connecting the oneM2M Web Tester page.

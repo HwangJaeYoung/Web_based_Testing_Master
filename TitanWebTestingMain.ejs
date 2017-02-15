@@ -72,8 +72,10 @@
                     });
 
                     // Concatenating testcase parameters
-                    for(var i = 0; i < parameterName.length; i++) {
-                        concatenatedParameter[i] = parameterName[i] + " := " + parameterValue[i];
+                    for(var i = 0; i < parameterValue.length; i++) {
+                        if(parameterValue[i].length != 0) {
+                            concatenatedParameter.push(parameterName[i] + " := " + parameterValue[i]);
+                        }
                     }
 
                     var testcaseConfigObject = new Object();
@@ -81,7 +83,6 @@
                     testcaseConfigObject.testConfig.testcaseName = testcaseName;
                     testcaseConfigObject.testConfig.testcaseParam = concatenatedParameter;
 
-                    /*
                     $.ajax({
                         url: 'http://127.0.0.1:62590/localTestingNode',
                         type: "post",
@@ -96,7 +97,7 @@
                         }, error: function (xhr, textStatus, errorThrown) {
 
                         }
-                    }); */
+                    });
                 });
 
                 // 기본적으로 1depth의 드롭다운을 로드함
