@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="4ba86143-9457-4d8b-ac3c-92bf3fb9cbcc" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Ajax/TestcaseList.html" afterPath="$PROJECT_DIR$/Ajax/TestcaseList.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CSS/MainTemplate.css" afterPath="$PROJECT_DIR$/CSS/MainTemplate.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TitanWebIntroduction.ejs" afterPath="$PROJECT_DIR$/TitanWebIntroduction.ejs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TitanWebTestingMain.ejs" afterPath="$PROJECT_DIR$/TitanWebTestingMain.ejs" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -25,8 +27,8 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1792">
-              <caret line="64" column="3" lean-forward="false" selection-start-line="64" selection-start-column="3" selection-end-line="64" selection-end-column="3" />
+            <state relative-caret-position="-37">
+              <caret line="53" column="30" lean-forward="false" selection-start-line="53" selection-start-column="10" selection-end-line="53" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -35,29 +37,31 @@
       <file leaf-file-name="Config.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Ajax/Config.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="8" column="21" lean-forward="true" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
+            <state relative-caret-position="196">
+              <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainTemplate.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MainTemplate.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CSS/MainTemplate.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="12" column="21" lean-forward="true" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
+            <state relative-caret-position="252">
+              <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TitanWebTestingMain.ejs" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TitanWebTestingMain.ejs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TitanWebTestingMain.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="417" column="67" lean-forward="true" selection-start-line="417" selection-start-column="67" selection-end-line="417" selection-end-column="67" />
-              <folding />
+            <state relative-caret-position="362">
+              <caret line="453" column="7" lean-forward="true" selection-start-line="453" selection-start-column="7" selection-end-line="453" selection-end-column="7" />
+              <folding>
+                <element signature="n#style#0;n#textarea#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -75,8 +79,8 @@
       <file leaf-file-name="TestcaseList.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Ajax/TestcaseList.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="13" column="42" lean-forward="false" selection-start-line="13" selection-start-column="42" selection-end-line="13" selection-end-column="42" />
+            <state relative-caret-position="134">
+              <caret line="10" column="9" lean-forward="true" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -92,8 +96,8 @@
       <file leaf-file-name="TitanWebIntroduction.ejs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TitanWebIntroduction.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2156">
-              <caret line="77" column="0" lean-forward="true" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+            <state relative-caret-position="-1150">
+              <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -102,8 +106,8 @@
       <file leaf-file-name="TitanTestingView.ejs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TitanTestingView.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1260">
-              <caret line="45" column="21" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="45" selection-end-column="21" />
+            <state relative-caret-position="164">
+              <caret line="63" column="71" lean-forward="true" selection-start-line="63" selection-start-column="28" selection-end-line="63" selection-end-column="71" />
               <folding />
             </state>
           </provider>
@@ -128,7 +132,6 @@
       <find>button</find>
       <find>select</find>
       <find>methodList</find>
-      <find>textarea</find>
       <find>addParam</find>
       <find>paramElement</find>
       <find>testingConfig</find>
@@ -139,6 +142,9 @@
       <find>testing</find>
       <find>deleteParamFormat</find>
       <find>deletePa</find>
+      <find>configTextArea</find>
+      <find>textarea</find>
+      <find>testingReport_txArea</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -158,16 +164,16 @@
         <option value="$PROJECT_DIR$/hello.html" />
         <option value="$PROJECT_DIR$/hello.txt" />
         <option value="$PROJECT_DIR$/Ajax/123.html" />
-        <option value="$PROJECT_DIR$/Ajax/TestcaseList.html" />
         <option value="$PROJECT_DIR$/Ajax/as.html" />
         <option value="$PROJECT_DIR$/TitanWebTestingMain2.ejs" />
         <option value="$PROJECT_DIR$/TitanTestingView.ejs" />
         <option value="$PROJECT_DIR$/Ajax/Config.txt" />
         <option value="$PROJECT_DIR$/Ajax/Config2.txt" />
-        <option value="$PROJECT_DIR$/TitanWebIntroduction.ejs" />
         <option value="$PROJECT_DIR$/app.js" />
-        <option value="$PROJECT_DIR$/CSS/MainTemplate.css" />
+        <option value="$PROJECT_DIR$/Ajax/TestcaseList.html" />
+        <option value="$PROJECT_DIR$/TitanWebIntroduction.ejs" />
         <option value="$PROJECT_DIR$/TitanWebTestingMain.ejs" />
+        <option value="$PROJECT_DIR$/CSS/MainTemplate.css" />
       </list>
     </option>
   </component>
@@ -181,9 +187,10 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-10" />
-    <option name="width" value="1934" />
-    <option name="height" value="1030" />
+    <option name="x" value="-11" />
+    <option name="y" value="-11" />
+    <option name="width" value="1942" />
+    <option name="height" value="1042" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -202,7 +209,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -259,6 +265,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -422,22 +429,24 @@
       <workItem from="1487047848914" duration="12895000" />
       <workItem from="1487122574308" duration="8421000" />
       <workItem from="1487172236579" duration="350000" />
-      <workItem from="1487213605139" duration="850000" />
+      <workItem from="1487213605139" duration="947000" />
+      <workItem from="1487227790323" duration="7140000" />
+      <workItem from="1487247573506" duration="8546000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="117597000" />
+    <option name="totallyTimeSpent" value="133380000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-10" y="0" width="1934" height="1030" extended-state="0" />
+    <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15062761" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32990867" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19907407" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28310502" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -561,25 +570,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="9115">
           <caret line="337" column="0" lean-forward="false" selection-start-line="337" selection-start-column="0" selection-end-line="337" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#textarea#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Ajax/Config2.txt" />
-    <entry file="file://$PROJECT_DIR$/Ajax/Config.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="8" column="21" lean-forward="true" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1792">
-          <caret line="64" column="3" lean-forward="false" selection-start-line="64" selection-start-column="3" selection-end-line="64" selection-end-column="3" />
-          <folding />
-        </state>
+    <entry file="file://$PROJECT_DIR$/Ajax/sejong.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CSS/main.css">
@@ -590,47 +590,60 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Ajax/TestcaseList.html">
+    <entry file="file://$PROJECT_DIR$/Ajax/Config.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="13" column="42" lean-forward="false" selection-start-line="13" selection-start-column="42" selection-end-line="13" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Ajax/sejong.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TitanWebIntroduction.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2156">
-          <caret line="77" column="0" lean-forward="true" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+        <state relative-caret-position="196">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TitanTestingView.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1260">
-          <caret line="45" column="21" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="45" selection-end-column="21" />
+        <state relative-caret-position="164">
+          <caret line="63" column="71" lean-forward="true" selection-start-line="63" selection-start-column="28" selection-end-line="63" selection-end-column="71" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CSS/MainTemplate.css">
+    <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="12" column="21" lean-forward="true" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
+        <state relative-caret-position="-37">
+          <caret line="53" column="30" lean-forward="false" selection-start-line="53" selection-start-column="10" selection-end-line="53" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TitanWebIntroduction.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1150">
+          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TitanWebTestingMain.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="417" column="67" lean-forward="true" selection-start-line="417" selection-start-column="67" selection-end-line="417" selection-end-column="67" />
+        <state relative-caret-position="362">
+          <caret line="453" column="7" lean-forward="true" selection-start-line="453" selection-start-column="7" selection-end-line="453" selection-end-column="7" />
+          <folding>
+            <element signature="n#style#0;n#textarea#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Ajax/TestcaseList.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="10" column="9" lean-forward="true" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CSS/MainTemplate.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
           <folding />
         </state>
       </provider>

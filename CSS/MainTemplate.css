@@ -17,6 +17,18 @@ body {
     margin-right: 15px;
 }
 
+.deleteTestcase{
+    font-size: 9px;
+    padding: 1px;
+}
+
+.testcaseListTable>tbody>tr:nth-child(odd)>td,
+.testcaseListTable>tbody>tr:nth-child(odd)>th {
+    background-color: #f9f9f9;
+}
+
+textarea { resize: vertical; }
+
 /* Testcase List Table CSS */
 .testcase-table-fixed thead {
     width: 97%;
