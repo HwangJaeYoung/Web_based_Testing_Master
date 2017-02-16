@@ -5,6 +5,14 @@ body {
     /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
 
+.buttonStyle {
+    margin-top: 10px;
+}
+
+.startTestcaseFormat {
+    margin-top: 33px;
+}
+
 .starting_button_margin_right{
     margin-right: 15px;
 }
