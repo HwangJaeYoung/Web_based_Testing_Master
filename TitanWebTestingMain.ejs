@@ -44,7 +44,8 @@
                     if(this.indexOf(el) == -1)
                         this.push(el);
                 }
-                var testcaseList = [];
+                var testcaseList = [], testprofileList = [];
+                var verdictList = [];
                 var detailInformation = '';
 
                 // Request to specific server
@@ -89,12 +90,75 @@
                         type: "post",
                         dataType: "json",
                         cache: false,
-                        timeout: 30000,
                         data: JSON.stringify(testcaseConfigObject),
                         contentType: "application/json",
 
                         success: function (data) {
                             detailInformation = data['result'];
+
+                            var resultString = detailInformation;
+
+                            for(var i = 0; i < testcaseList.length; i++) {
+                                var searchSting = "Test case " + testcaseList[i].testcase + " finished. Verdict: ";
+                                var verdictString = resultString.search(searchSting);
+                                var verdict = resultString[verdictString + searchSting.length]
+                                verdictList.push(verdict);
+                            }
+
+                            for(var i = 0; i < verdictList.length; i++) {
+
+                                var verdictElement = $("<tr>")
+
+                                // testcase number
+                                var verdictNumberTD = $('<td>');
+                                verdictNumberTD.attr({
+                                    "class":"col-xs-1"
+                                });
+                                verdictNumberTD.html(i + 1);
+
+                                // testprofile
+                                var verdict_profileTD = $('<td>');
+                                verdict_profileTD.attr({
+                                    "class": "col-xs-4"
+                                });
+                                verdict_profileTD.html(testcaseList[i].testprofile);
+
+                                // testcase
+                                var verdict_testcaseTD = $('<td>');
+                                verdict_testcaseTD.attr({
+                                    "class": "col-xs-4"
+                                });
+                                verdict_testcaseTD.html(testcaseList[i].testcase);
+
+                                // test result
+                                var testcase_verdict = $('<td>');
+                                testcase_verdict.attr({
+                                    "class": "col-xs-3"
+                                });
+
+                                if(verdictList[i] == 'p') {
+                                    verdictElement.attr({
+                                        "class":"success"
+                                    });
+                                    testcase_verdict.html('Pass');
+
+                                } else if(verdictList[i] == 'f') {
+                                    verdictElement.attr({
+                                        "class":"danger"
+                                    });
+                                    testcase_verdict.html('Fail');
+
+                                }  else if(verdictList[i] == 'i') {
+                                    verdictElement.attr({
+                                        "class":"info"
+                                    });
+                                    testcase_verdict.html('Inconclusive');
+                                }
+
+                                verdictElement.append(verdictNumberTD).append(verdict_profileTD).append(verdict_testcaseTD).append(testcase_verdict);
+                                var paramListRoot = $('#resultTable');
+                                paramListRoot.append(verdictElement);
+                            }
                         }, error: function (xhr, textStatus, errorThrown) {
                             alert(textStatus + ' : ' + errorThrown);
                         }
@@ -179,7 +243,6 @@
                     testcaseElement.append(testcaseNumberTD).append(testprofileTD).append(testcaseTD).append(testcaseDeleteTD);
                     var paramListRoot = $('#testcaseListTbody');
                     paramListRoot.append(testcaseElement);
-
                 });
 
                 // Deleting the saved testcase list
@@ -303,82 +366,87 @@
                                         <tr>
                                             <th class="col-lg-2">1</th>
                                             <th class="col-lg-4"><label id="OneM2M_Pixits.PX_SUT_ADDRESS" class="control-label parameterName">SUT ADDRESS</label></th>
-                                            <th class="col-lg-6"><input type="text" class="form-control parameterInput" placeholder="Parameter input"></th>
+                                            <th class="col-lg-6"><input type="text" class="form-control parameterInput" placeholder="Parameter input" value='"203.253.128.151:7579";'></th>
                                         </tr>
                                         <tr>
                                             <th class="col-lg-2">2</th>
                                             <th class="col-lg-4"><label id="OneM2M_Pixits.PX_CSE_NAME" class="control-label parameterName">CSE NAME</label></th>
-                                            <th class="col-lg-6"><input type="text" class="form-control parameterInput" placeholder="Parameter input"></th>
+                                            <th class="col-lg-6"><input type="text" class="form-control parameterInput" placeholder="Parameter input" value='"myAppId";'></th>
                                         </tr>
                                         <tr>
                                             <th class="col-lg-2">3</th>
                                             <th class="col-lg-4"><label id="OneM2M_Pixits.PX_URI_CSE" class="control-label parameterName">URI CSE</label></th>
-                                            <th class="col-lg-6"><input type="text" class="form-control parameterInput" placeholder="Parameter input"></th>
+                                            <th class="col-lg-6"><input type="text" class="form-control parameterInput" placeholder="Parameter input" value='"";'></th>
                                         </tr>
                                         <tr>
                                             <th class="col-lg-1">4</th>
                                             <th class="col-lg-5"><label id="OneM2M_Pixits.PX_CSE_ID" class="control-label parameterName">CSE ID</label></th>
-                                            <th class="col-lg-6"><input type="text" class="form-control parameterInput" placeholder="Parameter input"></th>
+                                            <th class="col-lg-6"><input type="text" class="form-control parameterInput" placeholder="Parameter input" value='"";'></th>
                                         </tr>
                                         <tr>
                                             <th class="col-lg-1">5</th>
                                             <th class="col-lg-5"><label id="OneM2M_Pixits.PX_UNSTRUCTURED" class="control-label parameterName">RESOURCE STRUCTURE</label></th>
-                                            <th class="col-lg-6"><input type="text" class="form-control parameterInput" placeholder="Parameter input"></th>
+                                            <th class="col-lg-6"><input type="text" class="form-control parameterInput" placeholder="Parameter input" value='false;'></th>
                                         </tr>
                                         <tr>
                                             <th class="col-lg-2">6</th>
                                             <th class="col-lg-4"><label id="OneM2M_Pixits.PX_ADDRESSING_FORMAT" class="control-label parameterName">ADDRESSING FORMAT</label></th>
-                                            <th class="col-lg-6"><input type="text" class="form-control parameterInput" placeholder="Parameter input"></th>
+                                            <th class="col-lg-6"><input type="text" class="form-control parameterInput" placeholder="Parameter input" value='e_cseRelative;'></th>
                                         </tr>
                                         <tr>
                                             <th class="col-lg-2">7</th>
                                             <th class="col-lg-4"><label id="OneM2M_Pixits.PX_FROM_IS_AE_ID" class="control-label parameterName">AE ID</label></th>
-                                            <th class="col-lg-6"><input type="text" class="form-control parameterInput" placeholder="Parameter input"></th>
+                                            <th class="col-lg-6"><input type="text" class="form-control parameterInput" placeholder="Parameter input" value='true;'></th>
                                         </tr>
                                         <tr>
                                             <th class="col-lg-2">8</th>
                                             <th class="col-lg-4"><label id="OneM2M_Pixits.PX_SERIALIZATION" class="control-label parameterName">SERIALIZATION</label></th>
-                                            <th class="col-lg-6"><input type="text" class="form-control parameterInput" placeholder="Parameter input"></th>
+                                            <th class="col-lg-6"><input type="text" class="form-control parameterInput" placeholder="Parameter input" value='"JSON";'></th>
                                         </tr>
                                         <tr>
                                             <th class="col-lg-2">9</th>
                                             <th class="col-lg-4"><label id="OneM2M_Pixits.PX_PROTOCOL_BINDING" class="control-label parameterName">PROTOCOL BINDING</label></th>
-                                            <th class="col-lg-6"><input type="text" class="form-control parameterInput" placeholder="Parameter input"></th>
+                                            <th class="col-lg-6"><input type="text" class="form-control parameterInput" placeholder="Parameter input" value='"HTTP";'></th>
                                         </tr>
                                         <tr>
                                             <th class="col-lg-2">10</th>
                                             <th class="col-lg-4"><label id="OneM2M_Pixits.PX_AE_ID_STEM" class="control-label parameterName">AE ID STEM</label></th>
-                                            <th class="col-lg-6"><input type="text" class="form-control parameterInput" placeholder="Parameter input"></th>
+                                            <th class="col-lg-6"><input type="text" class="form-control parameterInput" placeholder="Parameter input" value='"Cadmin-ae";'></th>
                                         </tr>
                                         <tr>
                                             <th class="col-lg-2">11</th>
                                             <th class="col-lg-4"><label id="OneM2M_Pixits.PX_APP_ID" class="control-label parameterName">APP ID</label></th>
-                                            <th class="col-lg-6"><input type="text" class="form-control parameterInput" placeholder="Parameter input"></th>
+                                            <th class="col-lg-6"><input type="text" class="form-control parameterInput" placeholder="Parameter input" value='"myAppId";'></th>
                                         </tr>
                                         <tr>
                                             <th class="col-lg-2">12</th>
-                                            <th class="col-lg-4"><label id="OneM2M_Pixits.PX_RESOURCES_TO_BE_DELETED" class="control-label parameterName">RESOURCE TO BE DELETED</label></th>
-                                            <th class="col-lg-6"><input type="text" class="form-control parameterInput" placeholder="Parameter input"></th>
+                                            <th class="col-lg-4"><label id="OneM2M_Pixits.PX_RESOURCES_TO_BE_DELETED" class="control-label parameterName">RESOURCES TO BE DELETED</label></th>
+                                            <th class="col-lg-6"><input type="text" class="form-control parameterInput" placeholder="Parameter input" value='{"Cadmin-ae"};'></th>
                                         </tr>
                                         <tr>
                                             <th class="col-lg-2">13</th>
-                                            <th class="col-lg-4"><label id="OneM2M_Pixits.PX_RESOURCE_TO_BE_DELETED" class="control-label parameterName">ACOR</label></th>
-                                            <th class="col-lg-6"><input type="text" class="form-control parameterInput" placeholder="Parameter input"></th>
+                                            <th class="col-lg-4"><label id="OneM2M_Pixits.PX_RESOURCE_TO_BE_DELETED" class="control-label parameterName">RESOURCE TO BE DELETED</label></th>
+                                            <th class="col-lg-6"><input type="text" class="form-control parameterInput" placeholder="Parameter input" value='"Cadmin-ae";'></th>
                                         </tr>
                                         <tr>
                                             <th class="col-lg-2">14</th>
                                             <th class="col-lg-4"><label id="OneM2M_Pixits.PX_SUPER_USER" class="control-label parameterName">SUPER USER</label></th>
-                                            <th class="col-lg-6"><input type="text" class="form-control parameterInput" placeholder="Parameter input"></th>
+                                            <th class="col-lg-6"><input type="text" class="form-control parameterInput" placeholder="Parameter input" value='"admin:admin";'></th>
                                         </tr>
                                         <tr>
                                             <th class="col-lg-2">15</th>
-                                            <th class="col-lg-4"><label id="OneM2M_Pixits.PX_RUN_POSTAMBLE" class="control-label parameterName">RUN POSTAMBLE</label></th>
-                                            <th class="col-lg-6"><input type="text" class="form-control parameterInput" placeholder="Parameter input"></th>
+                                            <th class="col-lg-4"><label id="OneM2M_Pixits.PX_ACOR" class="control-label parameterName">ACOR</label></th>
+                                            <th class="col-lg-6"><input type="text" class="form-control parameterInput" placeholder="Parameter input" value='{"admin:admin", "origin:origin", "Cadmin-ae"};'></th>
                                         </tr>
                                         <tr>
                                             <th class="col-lg-2">16</th>
+                                            <th class="col-lg-4"><label id="OneM2M_Pixits.PX_RUN_POSTAMBLE" class="control-label parameterName">RUN POSTAMBLE</label></th>
+                                            <th class="col-lg-6"><input type="text" class="form-control parameterInput" placeholder="Parameter input" value='true;'></th>
+                                        </tr>
+                                        <tr>
+                                            <th class="col-lg-2">17</th>
                                             <th class="col-lg-4"><label id="OneM2M_Pixits.LABELS" class="control-label parameterName">LABELS</label></th>
-                                            <th class="col-lg-6"><input type="text" class="form-control parameterInput" placeholder="Parameter input"></th>
+                                            <th class="col-lg-6"><input type="text" class="form-control parameterInput" placeholder="Parameter input" value='{"VALUE_1"}; '></th>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -398,7 +466,7 @@
                                         <th class="col-xs-2">#</th><th class="col-xs-4">Test Profile</th><th class="col-xs-4">Testcase</th><th class="col-xs-2">Result</th>
                                     </tr>
                                     </thead>
-                                    <tbody id = "paramTable">
+                                    <tbody id = "resultTable">
                                     </tbody>
                                 </table>
                             </div>

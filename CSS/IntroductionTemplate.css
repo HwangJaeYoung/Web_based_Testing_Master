@@ -1,0 +1,25 @@
+/* Custom styles for this template */
+
+body {
+    padding-top: 8vh;
+    /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+
+.jumbotron {
+    height:auto;
+}
+
+.jumbotron_content_height {
+    height:auto;
+}
+
+.jumbotron_contents {
+    height:auto;
+}
+
+.navbar {
+    height:auto;
+}
+div{
+    height:auto;
+}
