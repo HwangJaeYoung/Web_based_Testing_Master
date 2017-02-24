@@ -12,6 +12,9 @@
 
         <!-- Javascript Library -->
         <script src="jquery-3.0.0.min.js"></script>
+        <script src="pdfmake.min.js"></script> <!-- http://pdfmake.org/#/gettingstarted -->
+        <script src="vfs_fonts.js"></script>
+        <script src="imageData.js"></script>
 
         <!-- Bootstrap Core JavaScript -->
         <script src="js/bootstrap.min.js"></script>
@@ -163,6 +166,16 @@
                             alert(textStatus + ' : ' + errorThrown);
                         }
                     });
+                });
+
+                //
+                $('#PDFButton').click(function() {
+                    var docDefinition = {
+                        content: [
+                                { image: base64DataInfo},
+                                { text: detailInformation }
+                            ]};
+                    pdfMake.createPdf(docDefinition).download('Test Result.pdf');
                 });
 
                 // 기본적으로 1depth의 드롭다운을 로드함
@@ -511,6 +524,7 @@
                                 <textarea id = "modalTextArea" class="form-control" style="min-width: 100%"></textarea>
                             </div>
                             <div class="modal-footer">
+                                <button type="button" class="btn btn-default" id="PDFButton"> Getting PDF </button>
                                 <button type="button" class="btn btn-default" data-dismiss="modal"> Close </button>
                             </div>
                         </div> <!-- Modal Contents -->
