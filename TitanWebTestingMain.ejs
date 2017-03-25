@@ -54,6 +54,10 @@
                 // Request to specific server
                 $('#start_testing').click(function() {
 
+                    // Initialization
+                    $('#resultTable').empty();
+                    verdictList = [];
+
                     var testcaseName = []
                     var parameterName = [], parameterValue = [], concatenatedParameter = [];
 
@@ -172,7 +176,7 @@
                 $('#PDFButton').click(function() {
                     var docDefinition = {
                         content: [
-                                { image: base64DataInfo},
+                                { image: base64DataInfo },
                                 { text: detailInformation }
                             ]};
                     pdfMake.createPdf(docDefinition).download('Test Result.pdf');

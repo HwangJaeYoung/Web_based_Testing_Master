@@ -29,7 +29,7 @@ app.post('/localTestingNode', function (request, mainResponse) {
         console.log(testcaseParamArray[i]);
 
     requestToServer({
-        url :'http://192.168.140.128:62590/TesterNode',
+        url :'http://192.168.214.129:62590/TesterNode',
         method : 'POST',
         json: true,
         body: {
